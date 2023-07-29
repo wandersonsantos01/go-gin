@@ -1,16 +1,11 @@
 package main
 
-import "github.com/gin-gonic/gin"
-
-func ShowAllAnimals(c *gin.Context) {
-	c.JSON(200, gin.H{
-		"id":   "1",
-		"name": "Thor",
-	})
-}
+import (
+	"github.com/wandersonsantos01/go-gin/databases"
+	"github.com/wandersonsantos01/go-gin/routes"
+)
 
 func main() {
-	r := gin.Default()
-	r.GET("/animals", ShowAllAnimals)
-	r.Run()
+	databases.DbConnect()
+	routes.HandleRequests()
 }
