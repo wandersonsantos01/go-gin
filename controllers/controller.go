@@ -29,6 +29,12 @@ func InsertAnimal(c *gin.Context) {
 		})
 		return
 	}
+	if err := models.ValidateAnimalData(&animal); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+		return
+	}
 	databases.DB.Create(&animal)
 	c.JSON(http.StatusOK, animal)
 }
@@ -62,6 +68,12 @@ func UpdateAnimal(c *gin.Context) {
 
 	databases.DB.First(&animal, id)
 	if err := c.ShouldBindJSON(&animal); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+		return
+	}
+	if err := models.ValidateAnimalData(&animal); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
