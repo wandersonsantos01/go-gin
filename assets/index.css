@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Stick|Hachi+Maru+Pop');
+
+body {
+  background-color: #aeb6bf;
+}
+  
+h1 {
+  font-family: 'Stick', cursive;
+  margin: 0 auto;
+  margin-top: 6%;
+  text-align: center;
+  font-size: 70px;
+}
+
+ul, li {
+  font-family: 'Hachi Maru Pop', serif;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 40px;
+  list-style: none;
+}

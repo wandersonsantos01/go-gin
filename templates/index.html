@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/index.css">
+    <title>Animals</title>
+</head>
+<body>
+    <div class="widget-wrap">
+        <h1>{{.message}}</h1>
+        <div class="widget-wrap">
+            <ul id="list">
+                {{range .animals}}
+                <li>{{.Name}}</li>
+                {{end}}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

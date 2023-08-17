@@ -95,3 +95,17 @@ func GetAnimalByNickname(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, animal)
 }
+
+func ShowIndexPage(c *gin.Context) {
+	var animals []models.Animal
+	databases.DB.Find(&animals)
+
+	c.HTML(http.StatusOK, "index.html", gin.H{
+		"message": "Welcome!",
+		"animals": animals,
+	})
+}
+
+func RouteNotFound(c *gin.Context) {
+	c.HTML(http.StatusNotFound, "404.html", nil)
+}
