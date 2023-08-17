@@ -8,7 +8,7 @@ import (
 type Animal struct {
 	gorm.Model
 	Name     string `json:"name" validate:"nonzero"`
-	Age      int64  `json:"age" validate:"len=1, regexp=^[0-9]*$"`
+	Age      int64  `json:"age" validate:"min=0"`
 	Nickname string `json:"nickname" validate:"nonzero"`
 }
 
